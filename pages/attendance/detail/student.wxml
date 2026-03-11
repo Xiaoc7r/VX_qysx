@@ -1,0 +1,15 @@
+<view class="page">
+  <view class="card">
+    <view class="title">我的签到</view>
+    <view class="row">
+      <view class="row-label">打卡时间</view>
+      <view class="row-value">
+        {{detail.sign_time || detail.signTime || "暂无"}}
+      </view>
+    </view>
+    <view class="row">
+      <view class="row-label">状态</view>
+      <view class="row-value">{{statusLabel || "未知"}}</view>
+    </view>
+  </view>
+</view>

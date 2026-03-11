@@ -1,0 +1,40 @@
+.page {
+  min-height: 100vh;
+  padding: 24rpx;
+  background: #f5f7fb;
+}
+
+.card {
+  padding: 24rpx;
+  background: #ffffff;
+  border-radius: 18rpx;
+  box-shadow: 0 12rpx 30rpx rgba(35, 48, 88, 0.08);
+}
+
+.title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1f2a44;
+  margin-bottom: 16rpx;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12rpx 0;
+  border-bottom: 2rpx solid #eef2f7;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row-label {
+  font-size: 24rpx;
+  color: #6b7280;
+}
+
+.row-value {
+  font-size: 24rpx;
+  color: #1f2a44;
+}

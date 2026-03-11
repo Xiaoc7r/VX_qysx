@@ -1,0 +1,60 @@
+.page {
+  min-height: 100vh;
+  padding: 80rpx 40rpx;
+  background: linear-gradient(180deg, #f7f5ff 0%, #eef2ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  padding: 64rpx 48rpx;
+  background: #ffffff;
+  border-radius: 24rpx;
+  box-shadow: 0 20rpx 60rpx rgba(35, 48, 88, 0.12);
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #1f2a44;
+  margin-bottom: 48rpx;
+  text-align: center;
+}
+
+.input {
+  height: 88rpx;
+  border: 2rpx solid #e2e8f0;
+  border-radius: 16rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  margin-bottom: 28rpx;
+  background: #f8fafc;
+}
+
+.picker {
+  height: 88rpx;
+  border: 2rpx solid #e2e8f0;
+  border-radius: 16rpx;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 28rpx;
+  background: #f8fafc;
+}
+
+.picker-text {
+  font-size: 28rpx;
+  color: #1f2a44;
+}
+
+.button {
+  height: 92rpx;
+  line-height: 92rpx;
+  background: #2b4fdf;
+  color: #ffffff;
+  border-radius: 18rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}

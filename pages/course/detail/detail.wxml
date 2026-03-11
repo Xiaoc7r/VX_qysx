@@ -1,0 +1,47 @@
+<view class="page">
+  <view class="card" wx:if="{{course}}">
+    <view class="title">{{course.course_name}}</view>
+    <view class="desc">{{course.course_desc}}</view>
+  </view>
+
+  <view class="section" wx:if="{{userType === 2}}">
+    <view class="section-title">学生列表</view>
+    <view class="list" wx:if="{{students.length}}">
+      <view class="row" wx:for="{{students}}" wx:key="id">
+        <view class="row-title">{{item.real_name || item.username}}</view>
+        <view class="row-sub">{{item.student_id || item.identifier}}</view>
+      </view>
+    </view>
+    <view class="empty" wx:else>暂无学生</view>
+    <button class="primary-btn" bindtap="onCreateAttendance">发起签到</button>
+  </view>
+
+  <view class="section" wx:if="{{userType === 1}}">
+    <view class="section-title">进行中的签到</view>
+    <view class="row" wx:if="{{activeAttendance}}">
+      <view class="row-title">{{activeAttendance.title || activeAttendance.project_name}}</view>
+      <view class="row-sub">
+        {{activeAttendance.end_time || activeAttendance.endTime}}
+      </view>
+    </view>
+    <view class="empty" wx:else>当前暂无签到</view>
+    <button
+      class="primary-btn"
+      wx:if="{{activeAttendance}}"
+      bindtap="onSignNow"
+    >
+      立即签到
+    </button>
+  </view>
+
+  <view class="section">
+    <view class="section-title">历史考勤记录</view>
+    <view class="list" wx:if="{{history.length}}">
+      <view class="row" wx:for="{{history}}" wx:key="id">
+        <view class="row-title">{{item.title || item.project_name}}</view>
+        <view class="row-sub">{{item.start_time}} - {{item.end_time}}</view>
+      </view>
+    </view>
+    <view class="empty" wx:else>暂无历史记录</view>
+  </view>
+</view>

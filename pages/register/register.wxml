@@ -1,0 +1,45 @@
+<view class="page">
+  <view class="card">
+    <view class="title">创建账号</view>
+    <input
+      class="input"
+      placeholder="用户名"
+      value="{{username}}"
+      data-field="username"
+      bindinput="onInput"
+    />
+    <input
+      class="input"
+      placeholder="密码"
+      password
+      value="{{password}}"
+      data-field="password"
+      bindinput="onInput"
+    />
+    <input
+      class="input"
+      placeholder="真实姓名"
+      value="{{realName}}"
+      data-field="realName"
+      bindinput="onInput"
+    />
+    <input
+      class="input"
+      placeholder="学号/工号"
+      value="{{identifier}}"
+      data-field="identifier"
+      bindinput="onInput"
+    />
+    <picker
+      class="picker"
+      range="{{['学生','教师']}}"
+      value="{{roleIndex}}"
+      bindchange="onRoleChange"
+    >
+      <view class="picker-text">角色：{{roleIndex === 0 ? '学生' : '教师'}}</view>
+    </picker>
+    <button class="button" loading="{{loading}}" bindtap="onSubmit">
+      注册
+    </button>
+  </view>
+</view>

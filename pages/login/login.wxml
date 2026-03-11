@@ -1,0 +1,22 @@
+<view class="page">
+  <view class="card">
+    <view class="title">欢迎登录</view>
+    <input
+      class="input"
+      placeholder="用户名"
+      value="{{username}}"
+      bindinput="onUsernameInput"
+    />
+    <input
+      class="input"
+      placeholder="密码"
+      password
+      value="{{password}}"
+      bindinput="onPasswordInput"
+    />
+    <button class="button" loading="{{loading}}" bindtap="onSubmit">
+      登录
+    </button>
+    <view class="link" bindtap="onGoRegister">没有账号？去注册</view>
+  </view>
+</view>

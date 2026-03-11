@@ -1,0 +1,59 @@
+.page {
+  min-height: 100vh;
+  padding: 24rpx;
+  background: #f5f7fb;
+}
+
+.tabs {
+  display: flex;
+  background: #ffffff;
+  border-radius: 18rpx;
+  overflow: hidden;
+  box-shadow: 0 8rpx 20rpx rgba(35, 48, 88, 0.06);
+  margin-bottom: 20rpx;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 26rpx;
+  color: #6b7280;
+}
+
+.tab.active {
+  color: #2b4fdf;
+  background: #eef2ff;
+  font-weight: 600;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.card {
+  padding: 24rpx;
+  background: #ffffff;
+  border-radius: 18rpx;
+  box-shadow: 0 12rpx 30rpx rgba(35, 48, 88, 0.08);
+}
+
+.card-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1f2a44;
+}
+
+.card-desc {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #5b6478;
+}
+
+.empty {
+  text-align: center;
+  color: #8b94a6;
+  margin-top: 60rpx;
+}

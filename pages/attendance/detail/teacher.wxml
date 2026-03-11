@@ -1,0 +1,30 @@
+<view class="page">
+  <view class="card">
+    <view class="title">签到统计</view>
+    <view class="stats">
+      <view class="stat">
+        <view class="stat-value">{{summary.total || 0}}</view>
+        <view class="stat-label">总人数</view>
+      </view>
+      <view class="stat">
+        <view class="stat-value">{{summary.present || 0}}</view>
+        <view class="stat-label">已出勤</view>
+      </view>
+      <view class="stat">
+        <view class="stat-value">{{summary.absent || 0}}</view>
+        <view class="stat-label">缺勤</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">缺勤人员</view>
+    <view class="list" wx:if="{{absentList.length}}">
+      <view class="row" wx:for="{{absentList}}" wx:key="id">
+        <view class="row-title">{{item.real_name || item.username}}</view>
+        <view class="row-sub">{{item.student_id || item.identifier}}</view>
+      </view>
+    </view>
+    <view class="empty" wx:else>暂无缺勤人员</view>
+  </view>
+</view>

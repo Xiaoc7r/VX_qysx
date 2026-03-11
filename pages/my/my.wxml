@@ -1,0 +1,73 @@
+<view class="page">
+  <view class="card" wx:if="{{userType === 1}}">
+    <view class="title">我的出勤统计</view>
+    <view class="stats" wx:if="{{stats}}">
+      <view class="stat">
+        <view class="stat-value">{{stats.total || stats.totalCount || 0}}</view>
+        <view class="stat-label">应签</view>
+      </view>
+      <view class="stat">
+        <view class="stat-value">{{stats.signed || stats.signedCount || 0}}</view>
+        <view class="stat-label">实签</view>
+      </view>
+      <view class="stat">
+        <view class="stat-value">{{stats.absent || stats.absentCount || 0}}</view>
+        <view class="stat-label">缺勤</view>
+      </view>
+      <view class="stat">
+        <view class="stat-value">{{stats.rate || stats.attendanceRate || 0}}</view>
+        <view class="stat-label">出勤率</view>
+      </view>
+    </view>
+    <view class="empty" wx:else>暂无统计</view>
+  </view>
+
+  <view class="section" wx:if="{{userType === 1}}">
+    <view class="section-title">历史签到</view>
+    <view class="list" wx:if="{{history.length}}">
+      <view class="row" wx:for="{{history}}" wx:key="id">
+        <view class="row-title">{{item.title || item.project_name}}</view>
+        <view class="row-sub">{{item.sign_time || item.signTime}}</view>
+      </view>
+    </view>
+    <view class="empty" wx:else>暂无记录</view>
+  </view>
+
+  <view class="card" wx:if="{{userType === 2}}">
+    <view class="title">课程出勤统计</view>
+    <input
+      class="input"
+      placeholder="输入课程ID"
+      value="{{courseIdInput}}"
+      bindinput="onCourseIdInput"
+    />
+    <button class="primary-btn" bindtap="onFetchTeacherStats">查询</button>
+    <view class="stats" wx:if="{{teacherStats}}">
+      <view class="stat">
+        <view class="stat-value">
+          {{teacherStats.total || teacherStats.totalCount || 0}}
+        </view>
+        <view class="stat-label">应签</view>
+      </view>
+      <view class="stat">
+        <view class="stat-value">
+          {{teacherStats.signed || teacherStats.signedCount || 0}}
+        </view>
+        <view class="stat-label">实签</view>
+      </view>
+      <view class="stat">
+        <view class="stat-value">
+          {{teacherStats.absent || teacherStats.absentCount || 0}}
+        </view>
+        <view class="stat-label">缺勤</view>
+      </view>
+      <view class="stat">
+        <view class="stat-value">
+          {{teacherStats.rate || teacherStats.attendanceRate || 0}}
+        </view>
+        <view class="stat-label">出勤率</view>
+      </view>
+    </view>
+    <view class="empty" wx:else>请输入课程ID查询</view>
+  </view>
+</view>

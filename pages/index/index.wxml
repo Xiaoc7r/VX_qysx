@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<navigation-bar title="课程列表" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="section">
+      <view class="section-title">进行中的签到</view>
+      <view class="list" wx:if="{{activeAttendances.length}}">
+        <view class="card" wx:for="{{activeAttendances}}" wx:key="id">
+          <view class="card-title">{{item.title || item.project_name}}</view>
+          <view class="card-desc">{{item.end_time || item.endTime}}</view>
+        </view>
+      </view>
+      <view class="empty" wx:else>暂无进行中签到</view>
+    </view>
+
+    <view class="toolbar">
+      <button
+        class="primary-btn"
+        wx:if="{{userType === userTypeTeacher}}"
+      >
+        创建课程
+      </button>
+      <button
+        class="primary-btn"
+        wx:if="{{userType === userTypeStudent}}"
+      >
+        加入课程
+      </button>
+    </view>
+
+    <view class="list" wx:if="{{courses.length}}">
+      <view class="card" wx:for="{{courses}}" wx:key="id">
+        <view class="card-title">{{item.course_name}}</view>
+        <view class="card-desc">{{item.course_desc}}</view>
+      </view>
+    </view>
+    <view class="empty" wx:else>
+      暂无课程
+    </view>
+  </view>
+</scroll-view>

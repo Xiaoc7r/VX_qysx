@@ -1,0 +1,48 @@
+<view class="page">
+  <view class="tabs">
+    <view
+      class="tab {{tab === 'ongoing' ? 'active' : ''}}"
+      data-tab="ongoing"
+      bindtap="onTabChange"
+    >
+      进行中
+    </view>
+    <view
+      class="tab {{tab === 'history' ? 'active' : ''}}"
+      data-tab="history"
+      bindtap="onTabChange"
+    >
+      历史
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{userType === 2}}">
+    <input
+      class="input"
+      placeholder="输入课程ID"
+      value="{{courseIdInput}}"
+      bindinput="onCourseIdInput"
+    />
+    <button class="primary-btn" bindtap="onFetchTeacherList">查询</button>
+  </view>
+
+  <view class="list" wx:if="{{tab === 'ongoing' && activeList.length}}">
+    <view class="row" wx:for="{{activeList}}" wx:key="id">
+      <view class="row-title">{{item.title || item.project_name}}</view>
+      <view class="row-sub">{{item.start_time}} - {{item.end_time}}</view>
+    </view>
+  </view>
+  <view class="empty" wx:if="{{tab === 'ongoing' && !activeList.length}}">
+    暂无进行中签到
+  </view>
+
+  <view class="list" wx:if="{{tab === 'history' && historyList.length}}">
+    <view class="row" wx:for="{{historyList}}" wx:key="id">
+      <view class="row-title">{{item.title || item.project_name}}</view>
+      <view class="row-sub">{{item.start_time}} - {{item.end_time}}</view>
+    </view>
+  </view>
+  <view class="empty" wx:if="{{tab === 'history' && !historyList.length}}">
+    暂无历史签到
+  </view>
+</view>

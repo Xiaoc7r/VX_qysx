@@ -1,0 +1,38 @@
+<view class="page">
+  <view class="tabs">
+    <view
+      class="tab {{tab === 'my' ? 'active' : ''}}"
+      data-tab="my"
+      bindtap="onTabChange"
+    >
+      我的课程
+    </view>
+    <view
+      class="tab {{tab === 'all' ? 'active' : ''}}"
+      data-tab="all"
+      bindtap="onTabChange"
+    >
+      全部课程
+    </view>
+  </view>
+
+  <view class="list" wx:if="{{tab === 'my' && myCourses.length}}">
+    <view class="card" wx:for="{{myCourses}}" wx:key="id">
+      <view class="card-title">{{item.course_name}}</view>
+      <view class="card-desc">{{item.course_desc}}</view>
+    </view>
+  </view>
+  <view class="empty" wx:if="{{tab === 'my' && !myCourses.length}}">
+    暂无课程
+  </view>
+
+  <view class="list" wx:if="{{tab === 'all' && allCourses.length}}">
+    <view class="card" wx:for="{{allCourses}}" wx:key="id">
+      <view class="card-title">{{item.course_name}}</view>
+      <view class="card-desc">{{item.course_desc}}</view>
+    </view>
+  </view>
+  <view class="empty" wx:if="{{tab === 'all' && !allCourses.length}}">
+    暂无课程
+  </view>
+</view>
