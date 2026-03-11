@@ -1,0 +1,20 @@
+### 1. 注册接口测试
+POST http://127.0.0.1:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "teacher01",
+  "password": "123456",
+  "realName": "张老师",
+  "role": 1
+}
+
+
+### 2. 登录接口测试
+POST http://127.0.0.1:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "teacher01",
+  "password": "123456"
+}
