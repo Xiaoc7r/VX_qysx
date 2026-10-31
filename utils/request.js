@@ -29,8 +29,11 @@ function request(options) {
       },
       success(res) {
         if (res.statusCode === 401) {
-          wx.clearStorageSync();
-          wx.reLaunch({ url: "/pages/login/login" });
+          // A late response must not sign out a newer session or erase drafts.
+          if (token && wx.getStorageSync("token") === token) {
+            ["token", "userId", "userType"].forEach(key => wx.removeStorageSync(key));
+            wx.reLaunch({ url: "/pages/login/login" });
+          }
           reject(res);
           return;
         }
